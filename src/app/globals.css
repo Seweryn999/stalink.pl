@@ -1,0 +1,85 @@
+@import "tailwindcss";
+@import "tailwindcss/preflight";
+@import "tailwindcss/utilities";
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  background-color: #000;
+  color: #e5e7eb; /* text-gray-200 */
+  font-family: "Inter", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  touch-action: none;
+  z-index: 0;
+}
+
+body {
+  overscroll-behavior: none;
+}
+
+:focus {
+  outline: 2px dashed #ff2d95;
+  outline-offset: 4px;
+}
+
+.neon-text {
+  text-shadow: 0 0 5px #ff2d95, 0 0 10px #ff2d95, 0 0 20px #ff2d95,
+    0 0 40px #4df9ff;
+}
+@keyframes pulse-neon {
+  0%,
+  100% {
+    text-shadow: 0 0 5px #ff2d95, 0 0 10px #ff2d95, 0 0 20px #ff2d95,
+      0 0 40px #4df9ff;
+  }
+  50% {
+    text-shadow: 0 0 10px #ff2d95, 0 0 20px #ff2d95, 0 0 30px #ff2d95,
+      0 0 50px #4df9ff;
+  }
+}
+.neon-text:hover {
+  animation: pulse-neon 1.5s infinite;
+}
+
+.menu-link {
+  position: relative;
+  padding: 4px 0;
+  transition: color 0.3s;
+}
+.menu-link:hover {
+  color: #ff2d95;
+}
+.menu-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #ff2d95;
+  transition: width 0.3s;
+}
+.menu-link:hover::after {
+  width: 100%;
+}
+
+.section-container {
+  @apply max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 text-center pt-48 pb-24;
+}
+
+html:has(:target) {
+  scroll-behavior: smooth;
+}
