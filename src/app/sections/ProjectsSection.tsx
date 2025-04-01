@@ -1,12 +1,11 @@
 export default function ProjectsSection() {
   return (
-    <section id="projects" className="py-80 bg-black flex justify-center">
+    <section id="projects" className="py-80  flex justify-center">
       <div className="max-w-7xl w-full px-6 text-center flex flex-col items-center gap-y-20">
         <header className="animate-pulse-slow">
           <h2 className="text-5xl font-black uppercase tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-white">
             Projekty
           </h2>
-          <div className="mt-16 w-24 h-1 bg-blue-500 mx-auto rounded-full" />
         </header>
 
         <p className="text-xl text-gray-300 max-w-3xl font-mono leading-loose">
@@ -14,7 +13,7 @@ export default function ProjectsSection() {
           pokazuje inne wyzwania i technologie, z jakimi pracowałem.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-16 gap-y-40 w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-8">
           {[
             {
               title: "BB Hair Spa",
@@ -34,17 +33,17 @@ export default function ProjectsSection() {
           ].map((project, index) => (
             <div
               key={index}
-              className="bg-gray-900 p-16 rounded-2xl shadow-xl hover:shadow-blue-500/30 transition-transform duration-300 hover:scale-105 flex flex-col items-center text-center gap-y-12"
+              className="bg-gray-800 p-8 rounded-xl shadow-md hover:shadow-lg hover:shadow-blue-500/20 transition-all duration-300 flex flex-col items-center text-center gap-y-6 max-w-md mx-auto"
             >
-              <h3 className="text-3xl font-bold text-blue-400">
+              <h3 className="text-2xl font-semibold text-white">
                 {project.title}
               </h3>
-              <p className="text-gray-300 text-lg leading-relaxed">
+              <p className="text-gray-400 text-base leading-relaxed">
                 {project.description}
               </p>
               <a
                 href="#"
-                className="px-8 py-4 border border-blue-400 text-blue-400 rounded-md font-mono hover:bg-blue-400 hover:text-white transition"
+                className="px-6 py-2 bg-blue-600 text-white rounded-md font-medium hover:bg-blue-700 hover:shadow-md transition-all duration-200 focus:outline-none focus:ring-0"
               >
                 Zobacz więcej
               </a>

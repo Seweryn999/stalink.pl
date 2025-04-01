@@ -8,61 +8,40 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        neonPink: "#ff2d95",
-        neonBlue: "#4df9ff",
-        neonGreen: "#39ff14",
-        darkBg: "#0e0e0e",
-        glass: "rgba(255, 255, 255, 0.05)",
+        darkBg: "#0e0e0e", // Kept this for a solid dark base
+        gray: {
+          600: "#4b5563", // For loading states
+          700: "#374151",
+          800: "#1f2937",
+          900: "#111827",
+        },
+        blue: {
+          600: "#2563eb", // Button base
+          700: "#1d4ed8", // Hover
+          800: "#1e40af", // Active
+          900: "#1e3a8a", // Darker active
+        },
       },
       boxShadow: {
-        neon: "0 0 10px rgba(255, 45, 149, 0.8)",
-        soft: "0 10px 30px rgba(0, 0, 0, 0.3)",
-        glow: "0 0 20px #4df9ff",
+        md: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)", // Subtle hover shadow
+        inner: "inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)", // For active press
       },
       keyframes: {
-        glow: {
-          "0%, 100%": {
-            textShadow: "0 0 5px #ff2d95, 0 0 10px #ff2d95, 0 0 20px #4df9ff",
-          },
-          "50%": {
-            textShadow: "0 0 10px #ff2d95, 0 0 20px #ff2d95, 0 0 40px #4df9ff",
-          },
-        },
-        fadeInUp: {
-          "0%": {
-            opacity: 0,
-            transform: "translateY(20px)",
-          },
-          "100%": {
-            opacity: 1,
-            transform: "translateY(0)",
-          },
-        },
-        twinkle: {
-          "0%, 100%": { opacity: 1 },
-          "50%": { opacity: 0.5 },
-        },
-        move: {
-          "0%": { transform: "translateX(0) translateY(0)" },
-          "100%": { transform: "translateX(-2000px) translateY(1000px)" },
+        fadeIn: {
+          "0%": { opacity: 0 },
+          "100%": { opacity: 1 },
         },
       },
       animation: {
-        glow: "glow 2s infinite ease-in-out",
-        fadeInUp: "fadeInUp 0.8s ease-out both",
-        "star-twinkle": "twinkle 2s infinite",
-        "star-move": "move 50s linear infinite",
+        fadeIn: "fadeIn 0.5s ease-out",
       },
       borderRadius: {
-        xl: "1rem",
-        "2xl": "1.5rem",
+        md: "0.375rem", // Default for buttons
       },
       fontFamily: {
-        sans: ['"Inter"', "sans-serif"],
-        mono: ['"Fira Code"', "monospace"],
+        sans: ['"Inter"', "sans-serif"], // Clean, modern font
       },
     },
   },
   plugins: [],
-  safelist: ["animate-star-twinkle", "animate-star-move"],
 };

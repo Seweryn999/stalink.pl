@@ -31,86 +31,96 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="py-48 bg-gradient-to-br from-black to-gray-900 flex items-center justify-center px-4"
+      className="min-h-screen  from-black to-gray-900 flex items-center justify-center px-4 py-20"
     >
-      <div className="w-full max-w-4xl">
-        {/* Nagłówek */}
-        <header className="mb-20 text-center">
-          <h2 className="text-5xl font-black tracking-widest uppercase text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-white">
-            Skontaktuj się ze mną
+      <div className="w-full max-w-2xl">
+        {/* Header */}
+        <header className="mb-16 text-center">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight uppercase text-white">
+            Skontaktuj się
           </h2>
-          <div className="mt-4 w-24 h-1 bg-blue-500 mx-auto rounded-full" />
-          <p className="mt-8 text-gray-300 font-mono text-lg max-w-2xl mx-auto leading-relaxed">
-            Masz pytanie, pomysł lub ofertę współpracy? Wypełnij formularz, a
-            odezwę się najszybciej jak to możliwe.
+          <p className="mt-4 text-gray-400 text-lg max-w-xl mx-auto">
+            Masz pytanie lub propozycję? Napisz do mnie, a odpowiem najszybciej
+            jak mogę.
           </p>
         </header>
 
-        {/* Formularz */}
-        <div className="bg-gray-950/80 backdrop-blur-md border border-gray-800 shadow-2xl rounded-2xl p-10 md:p-16 transition-all">
-          {submitted ? (
-            <div className="text-center text-blue-400 text-xl font-semibold">
-              ✨ Wiadomość została wysłana. Dziękuję!
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-16">
-              {/* Imię */}
-              <div className="flex items-center gap-3 px-4 py-3 bg-gray-900 border border-gray-700 rounded-md focus-within:ring-2 focus-within:ring-blue-500">
-                <User className="text-gray-400" size={20} />
+        {/* Form */}
+        {submitted ? (
+          <div className="text-center text-white text-xl font-medium animate-fade-in">
+            ✓ Wiadomość wysłana! Dziękuję za kontakt.
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit} className="space-y-8">
+            {/* Name Input */}
+            <div className="relative group">
+              <div className="absolute inset-0 bg-gray-800/20 rounded-xl blur-sm group-hover:bg-gray-800/30 transition-all"></div>
+              <div className="relative flex items-center gap-3 px-4 py-3 bg-transparent border border-gray-700 rounded-xl focus-within:border-white/50">
+                <User className="text-gray-500" size={20} />
                 <input
                   type="text"
                   name="name"
-                  placeholder="Imię"
+                  placeholder="Twoje imię"
                   value={formData.name}
                   onChange={handleChange}
-                  className="flex-1 bg-transparent text-white placeholder-gray-400 !outline-none !ring-0"
+                  className="w-full bg-transparent text-white placeholder-gray-500 outline-none"
                   required
                 />
               </div>
+            </div>
 
-              {/* Email */}
-              <div className="flex items-center gap-3 px-4 py-3 bg-gray-900 border border-gray-700 rounded-md focus-within:ring-2 focus-within:ring-blue-500">
-                <Mail className="text-gray-400" size={20} />
+            {/* Email Input */}
+            <div className="relative group">
+              <div className="absolute inset-0 bg-gray-800/20 rounded-xl blur-sm group-hover:bg-gray-800/30 transition-all"></div>
+              <div className="relative flex items-center gap-3 px-4 py-3 bg-transparent border border-gray-700 rounded-xl focus-within:border-white/50">
+                <Mail className="text-gray-500" size={20} />
                 <input
                   type="email"
                   name="email"
-                  placeholder="Email"
+                  placeholder="Twój email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="flex-1 bg-transparent text-white placeholder-gray-400 !outline-none !ring-0"
+                  className="w-full bg-transparent text-white placeholder-gray-500 outline-none"
                   required
                 />
               </div>
+            </div>
 
-              {/* Wiadomość */}
-              <div className="flex gap-3 px-4 py-3 bg-gray-900 border border-gray-700 rounded-md focus-within:ring-2 focus-within:ring-blue-500 items-start">
-                <MessageSquare className="text-gray-400 mt-1" size={20} />
+            {/* Message Input */}
+            <div className="relative group">
+              <div className="absolute inset-0 bg-gray-800/20 rounded-xl blur-sm group-hover:bg-gray-800/30 transition-all"></div>
+              <div className="relative flex gap-3 px-4 py-3 bg-transparent border border-gray-700 rounded-xl focus-within:border-white/50 items-start">
+                <MessageSquare className="text-gray-500 mt-1" size={20} />
                 <textarea
                   name="message"
                   placeholder="Twoja wiadomość"
                   value={formData.message}
                   onChange={handleChange}
-                  rows={6}
-                  className="flex-1 bg-transparent text-white placeholder-gray-400 !outline-none !ring-0 resize-none"
+                  rows={4}
+                  className="w-full bg-transparent text-white placeholder-gray-500 outline-none resize-none"
                   required
                 />
               </div>
+            </div>
 
-              {/* Przyciski */}
+            {/* Submit Button */}
+            <div className="relative group flex justify-center">
               <button
                 type="submit"
                 disabled={loading}
-                className={`w-full py-4 rounded-md text-center font-semibold font-mono border border-blue-400 transition-all ${
+                className={`relative px-8 py-2 rounded-md font-medium text-white transition-all duration-150 ${
                   loading
-                    ? "bg-blue-400 text-black cursor-not-allowed animate-pulse"
-                    : "text-blue-400 hover:bg-blue-400 hover:text-black"
+                    ? "bg-gray-600 cursor-not-allowed"
+                    : "bg-blue-600 hover:bg-blue-700 hover:shadow-md active:bg-blue-800 active:shadow-inner active:translate-y-1"
                 }`}
               >
-                {loading ? "Wysyłanie..." : "Wyślij wiadomość"}
+                <span className="relative z-10">
+                  {loading ? "Wysyłanie..." : "Wyślij"}
+                </span>
               </button>
-            </form>
-          )}
-        </div>
+            </div>
+          </form>
+        )}
       </div>
     </section>
   );

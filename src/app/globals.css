@@ -1,13 +1,11 @@
 @import "tailwindcss";
-@import "tailwindcss/preflight";
-@import "tailwindcss/utilities";
 
-html,
+@impor html,
 body {
   margin: 0;
   padding: 0;
   width: 100%;
-  min-height: 100%;
+  min-height: 100vh;
   background-color: #000;
   color: #e5e7eb;
   font-family: "Inter", sans-serif;
@@ -29,29 +27,20 @@ canvas {
 }
 
 body {
-  overscroll-behavior: auto;
-}
-
-:focus {
-  outline: 2px solid #ff2d95;
-  box-shadow: 0 0 4px #ff2d95, 0 0 8px #ff2d95;
-  outline-offset: 4px;
+  overscroll-behavior: none;
 }
 
 .neon-text {
-  text-shadow: 0 0 5px #ff2d95, 0 0 10px #ff2d95, 0 0 20px #ff2d95,
-    0 0 40px #4df9ff;
+  text-shadow: 0 0 4px #3b82f6, 0 0 8px #3b82f6, 0 0 12px #3b82f6;
 }
 
 @keyframes pulse-neon {
   0%,
   100% {
-    text-shadow: 0 0 5px #ff2d95, 0 0 10px #ff2d95, 0 0 20px #ff2d95,
-      0 0 40px #4df9ff;
+    text-shadow: 0 0 4px #3b82f6, 0 0 8px #3b82f6, 0 0 12px #3b82f6;
   }
   50% {
-    text-shadow: 0 0 10px #ff2d95, 0 0 20px #ff2d95, 0 0 30px #ff2d95,
-      0 0 50px #4df9ff;
+    text-shadow: 0 0 6px #3b82f6, 0 0 12px #3b82f6, 0 0 18px #3b82f6;
   }
 }
 
@@ -62,12 +51,11 @@ body {
 .menu-link {
   position: relative;
   padding: 4px 0;
-  transition: color 0.3s;
-  z-index: 1;
+  transition: color 0.3s ease;
 }
 
 .menu-link:hover {
-  color: #ff2d95;
+  color: #3b82f6;
 }
 
 .menu-link::after {
@@ -75,10 +63,10 @@ body {
   position: absolute;
   left: 0;
   bottom: 0;
-  width: 0%;
-  height: 2px;
-  background-color: #ff2d95;
-  transition: width 0.3s;
+  width: 0;
+  height: 1px;
+  background-color: #3b82f6;
+  transition: width 0.3s ease;
 }
 
 .menu-link:hover::after {
@@ -86,9 +74,8 @@ body {
 }
 
 .section-container {
-  @apply max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 text-center pt-48 pb-24;
+  @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-32 pb-20;
   position: relative;
-  z-index: -1; 
 }
 
 html:has(:target) {
@@ -101,26 +88,41 @@ html:has(:target) {
   left: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
-  z-index: 1; 
   pointer-events: none;
-  background-color: transparent;
+  background: transparent;
+  z-index: -1;
 }
 
 .star {
   position: absolute;
-  background-color: white !important;
+  background-color: #fff;
   border-radius: 50%;
-  opacity: 1;
-  animation: twinkle 2s infinite;
+  opacity: 0.8;
+  animation: twinkle 2s infinite ease-in-out;
 }
 
 @keyframes twinkle {
   0%,
   100% {
-    opacity: 1;
+    opacity: 0.8;
   }
   50% {
-    opacity: 0.5;
+    opacity: 0.3;
   }
+}
+
+/* Custom fade-in animation for submitted message */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out forwards;
 }
