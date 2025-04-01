@@ -38,10 +38,20 @@ module.exports = {
             transform: "translateY(0)",
           },
         },
+        twinkle: {
+          "0%, 100%": { opacity: 1 },
+          "50%": { opacity: 0.5 },
+        },
+        move: {
+          "0%": { transform: "translateX(0) translateY(0)" },
+          "100%": { transform: "translateX(-2000px) translateY(1000px)" },
+        },
       },
       animation: {
         glow: "glow 2s infinite ease-in-out",
         fadeInUp: "fadeInUp 0.8s ease-out both",
+        "star-twinkle": "twinkle 2s infinite",
+        "star-move": "move 50s linear infinite",
       },
       borderRadius: {
         xl: "1rem",
@@ -54,4 +64,5 @@ module.exports = {
     },
   },
   plugins: [],
+  safelist: ["animate-star-twinkle", "animate-star-move"],
 };

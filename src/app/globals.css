@@ -9,7 +9,7 @@ body {
   width: 100%;
   min-height: 100%;
   background-color: #000;
-  color: #e5e7eb; /* text-gray-200 */
+  color: #e5e7eb;
   font-family: "Inter", sans-serif;
   -webkit-font-smoothing: antialiased;
   scroll-behavior: smooth;
@@ -22,16 +22,19 @@ body {
 canvas {
   display: block;
   width: 100%;
+  height: 100%;
   touch-action: none;
-  z-index: 0;
+  z-index: -1;
+  pointer-events: none;
 }
 
 body {
-  overscroll-behavior: none;
+  overscroll-behavior: auto;
 }
 
 :focus {
-  outline: 2px dashed #ff2d95;
+  outline: 2px solid #ff2d95;
+  box-shadow: 0 0 4px #ff2d95, 0 0 8px #ff2d95;
   outline-offset: 4px;
 }
 
@@ -39,6 +42,7 @@ body {
   text-shadow: 0 0 5px #ff2d95, 0 0 10px #ff2d95, 0 0 20px #ff2d95,
     0 0 40px #4df9ff;
 }
+
 @keyframes pulse-neon {
   0%,
   100% {
@@ -50,6 +54,7 @@ body {
       0 0 50px #4df9ff;
   }
 }
+
 .neon-text:hover {
   animation: pulse-neon 1.5s infinite;
 }
@@ -58,10 +63,13 @@ body {
   position: relative;
   padding: 4px 0;
   transition: color 0.3s;
+  z-index: 1;
 }
+
 .menu-link:hover {
   color: #ff2d95;
 }
+
 .menu-link::after {
   content: "";
   position: absolute;
@@ -72,14 +80,47 @@ body {
   background-color: #ff2d95;
   transition: width 0.3s;
 }
+
 .menu-link:hover::after {
   width: 100%;
 }
 
 .section-container {
   @apply max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 text-center pt-48 pb-24;
+  position: relative;
+  z-index: -1; 
 }
 
 html:has(:target) {
   scroll-behavior: smooth;
+}
+
+.starry-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1; 
+  pointer-events: none;
+  background-color: transparent;
+}
+
+.star {
+  position: absolute;
+  background-color: white !important;
+  border-radius: 50%;
+  opacity: 1;
+  animation: twinkle 2s infinite;
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
 }

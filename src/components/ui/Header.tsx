@@ -9,13 +9,11 @@ export default function Header() {
   return (
     <header className="bg-black bg-opacity-70 backdrop-blur-lg w-full py-4 fixed top-0 left-0 z-50 shadow-md">
       <div className="w-full px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-      
-        <div className="text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-white text-2xl font-black tracking-widest animate-pulse-slow uppercase">
+        <div className="text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-white text-3xl font-black tracking-widest animate-pulse-slow uppercase">
           <Link href="/">Stalink</Link>
         </div>
 
-        
-        <ul className="hidden md:flex gap-8 text-sm font-mono text-gray-300">
+        <ul className="hidden md:flex gap-8  font-mono text-gray-300 text-2xl">
           <li>
             <Link
               href="#hero"
@@ -50,7 +48,6 @@ export default function Header() {
           </li>
         </ul>
 
-        
         <div className="md:hidden">
           <button
             onClick={toggleMenu}
@@ -90,7 +87,6 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile menu */}
       {isOpen && (
         <div className="md:hidden mt-4 w-full px-4 sm:px-6 lg:px-8">
           <ul className="flex flex-col gap-4 text-sm font-mono text-gray-300">
