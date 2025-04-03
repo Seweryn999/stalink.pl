@@ -8,23 +8,23 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        darkBg: "#0e0e0e", // Kept this for a solid dark base
+        darkBg: "#0e0e0e", // Solid dark base
         gray: {
-          600: "#4b5563", // For loading states
+          600: "#4b5563",
           700: "#374151",
           800: "#1f2937",
           900: "#111827",
         },
         blue: {
-          600: "#2563eb", // Button base
-          700: "#1d4ed8", // Hover
-          800: "#1e40af", // Active
-          900: "#1e3a8a", // Darker active
+          600: "#2563eb",
+          700: "#1d4ed8",
+          800: "#1e40af",
+          900: "#1e3a8a",
         },
       },
       boxShadow: {
-        md: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)", // Subtle hover shadow
-        inner: "inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)", // For active press
+        md: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+        inner: "inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)",
       },
       keyframes: {
         fadeIn: {
@@ -36,12 +36,21 @@ module.exports = {
         fadeIn: "fadeIn 0.5s ease-out",
       },
       borderRadius: {
-        md: "0.375rem", // Default for buttons
+        md: "0.375rem",
       },
       fontFamily: {
-        sans: ['"Inter"', "sans-serif"], // Clean, modern font
+        sans: ['"Inter"', "sans-serif"],
       },
     },
   },
-  plugins: [],
+  variants: {
+    extend: {
+      backdropFilter: ["responsive"], // Ensures blur support on various screens
+    },
+  },
+  plugins: [
+    require("@tailwindcss/forms"),
+    require("@tailwindcss/typography"),
+    require("tailwindcss-scroll-snap"),
+  ],
 };

@@ -4,7 +4,6 @@ import StarsBackground from "../components/ui/StarsBackground";
 
 export const metadata = {
   title: "Stalink",
-  description: "Opis strony...",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -15,7 +14,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body className="relative text-white overflow-x-hidden min-h-screen bg-black">
+      <body className="relative text-white overflow-x-hidden min-h-screen starry-background">
         <StarsBackground />
         <div className="relative z-10">{children}</div>
       </body>

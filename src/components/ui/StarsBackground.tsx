@@ -15,7 +15,7 @@ export default function StarsBackground() {
 
     container.innerHTML = "";
 
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 300; i++) {
       const star = document.createElement("div");
       star.className = "star";
       star.style.width = `${Math.random() * 3}px`;
