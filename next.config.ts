@@ -1,9 +1,8 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  experimental: {},
-
-  devIndicators: false,
+const nextConfig = {
+  reactStrictMode: true,
+  basePath: "/stalink-pl",
+  assetPrefix: "/stalink-pl/",
+  output: "export",
+  images: { unoptimized: true },
 };
-
-export default nextConfig;
+module.exports = nextConfig;

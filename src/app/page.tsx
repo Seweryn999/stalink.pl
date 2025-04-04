@@ -8,7 +8,7 @@ import Footer from "../components/ui/Footer";
 export default function Home() {
   return (
     <main className="relative min-h-screen overflow-x-hidden">
-      <Header /> {/* Przeniesiono przed główny kontener */}
+      <Header />
       <div className="w-full px-4 sm:px-6 lg:px-8 pt-24">
         <link rel="icon" href="/logo.svg" />
         <HeroSection />
